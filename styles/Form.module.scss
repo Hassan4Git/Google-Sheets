@@ -7,6 +7,9 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     margin-left: 40px;
+    & h1 {
+        border-bottom: 5px solid green;
+    }
     & img {
         object-fit: contain;
         position: absolute;
