@@ -2,9 +2,9 @@
     position: relative;
     display: flex;
     justify-content: center;
-    width: fit-content;
+    width: 500px;
     padding: 30px 60px;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     margin-left: 40px;
     & img {
@@ -12,11 +12,11 @@
         position: absolute;
         &#top {
             top: 1%;
-            right: 3%;
+            right: 5%;
         }
         &#bottom {
-            top: 1%;
-            right: 0%;
+            top: 2%;
+            right: 2%;
             transform: rotate(30deg);
         }
     }
@@ -24,24 +24,27 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 90%;
         gap: 50px;
         & h1 {
             font-size: 50px;
         }
         & input {
-            font-size: 30px;
-            &[type = 'text'] {
-                padding: 15px;          
-                border: none;
-                outline: none;
-                // border-radius: 10px;
-                border-bottom: 1px solid black;
-            }
+            font-size: 20px;
             &[type = 'submit'] {
-                border: none;
+                border: 1px solid black;
                 border-radius: 15px;
                 padding: 20px 80px;
                 cursor: pointer;
+                display: flex;
+                justify-content: center;
+                background-color: transparent;
+                width: 100%;
+                &:hover {
+                    border: 1px solid white;
+                    background-color: black;
+                    color: white;
+                }
             }
         }
     }
