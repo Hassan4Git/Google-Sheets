@@ -11,7 +11,6 @@ const Form = () => {
     const handleChange = (event) => {
         setPackageNum(event.target.value)
     }
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         const form = {
@@ -20,9 +19,7 @@ const Form = () => {
             email,
             packageNum
         }
-        console.log(form)
-
-        const response = await fetch('/api/submit', {
+        await fetch('/api/submit', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -30,15 +27,7 @@ const Form = () => {
             },
             body: JSON.stringify(form)
         })
-
-        const content = await response.json()
-
-        console.log(content)
-        alert(content.data.tableRange)
-        setName('')
-        setNumber('')
-        setEmail('')
-        setPackageNum('')
+        setName(''); setNumber(''); setEmail(''); setPackageNum('')
     }
     return (
         <div className={styles.container}>
@@ -46,9 +35,34 @@ const Form = () => {
             <Image src='/google_sheets_logo.png' height={70} width={50} alt='Google Sheets' id={styles.top} />
             <form className={styles.form} onSubmit={handleSubmit}>
                 <h1>Order</h1>
-                <TextField variant='outlined' label='Name' fullWidth onChange={(e) => setName(e.target.value)} />
-                <TextField variant='outlined' label='Phone Number' fullWidth onChange={(e) => setNumber(e.target.value)} />
-                <TextField variant='outlined' label='Email' fullWidth onChange={(e) => setEmail(e.target.value)} />
+                <TextField 
+                    variant='outlined' 
+                    label='Name' 
+                    fullWidth 
+                    onChange={(e) => setName(e.target.value)}
+                    value={name}
+                    type='text'
+                    required 
+                />
+                <TextField 
+                    variant='outlined' 
+                    label='Phone Number' 
+                    fullWidth 
+                    onChange={(e) => setNumber(e.target.value)}
+                    value={number}
+                    type='number'
+                    required
+                    inputProps={{maxLength: "10"}}
+                />
+                <TextField 
+                    variant='outlined' 
+                    label='Email' 
+                    fullWidth 
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                    type='email'
+                    required 
+                />
                 <FormControl style={{width: "100%"}}>
                     <InputLabel id="packagePicker">Package</InputLabel>
                     <Select
