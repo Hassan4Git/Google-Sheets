@@ -5,10 +5,7 @@ import Form from '@/components/Form'
 import Packages from '@/components/Packages'
 import Search from '@/components/Search'
 
-
-
 export default function Home() {
-	
 	return (
 		<div className={styles.wrapper}>
 			<Head>
