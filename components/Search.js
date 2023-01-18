@@ -37,16 +37,16 @@ const Search = () => {
                         return (
                             <div className={styles.orders}>
                                 <span>
-                                    <Image src='/person_icon.png' height={30} width={30} alt='Person Icon' />
-                                    {customer[0]},
+                                    <Image src='/person_icon.png' height={35} width={30} alt='Person Icon' />
+                                    {customer[0]}
                                 </span>
                                 <span>
                                     <Image src='/phone_icon.png' height={30} width={30} alt='Phone Icon' />
-                                    {customer[1]},
+                                    {customer[1]}
                                 </span>
                                 <span>
                                     <Image src='/email_icon.png' height={30} width={30} alt='Email Icon' />
-                                    {customer[2]},
+                                    {customer[2]}
                                 </span>
                                 <span>
                                     <Image src='/order3_icon.png' height={30} width={30} alt='Order Icon' />

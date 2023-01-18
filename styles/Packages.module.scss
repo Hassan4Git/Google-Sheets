@@ -20,6 +20,7 @@
             border: 1px solid rgba(0,0,0,0.2);
             border-radius: 5px;
             gap: 20px;
+            cursor: pointer;
             & > div {
                 background-color: rgba(0, 78, 0, 0.39);
                 width: 80px;
@@ -34,6 +35,9 @@
                 justify-content: center;
                 align-items: center;
                 font-size: 18px;
+            }
+            &:hover > div {
+                background-color: rgba(0, 78, 0, 0.5);
             }
         }
     }
