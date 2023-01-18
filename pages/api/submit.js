@@ -39,7 +39,7 @@ export default async function handler(req, res) {
                 spreadsheetId: process.env.GOOGLE_SHEET_ID,
                 range: 'Orders'
             }).then(res => res.data.values)
-            console.log(resp)
+            resp.shift()
             res.status(200).json({
                 data: resp
             })

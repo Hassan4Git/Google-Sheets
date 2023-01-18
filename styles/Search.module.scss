@@ -1,11 +1,13 @@
 .container {
-    height: 50%;
+    height: 55%;
     & .searchBar {
         position: relative;
         display: flex;
         border-radius: 40px;
         width: 80%;
         margin: auto;
+        margin-bottom: 10px;
+        margin-top: 15px;
         border: 1px solid rgba(0,0,0,0.3);
         padding: 10px;
         & .imageContainer {
@@ -32,5 +34,23 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        gap: 5px;
+        & .orders {
+            display: flex;
+            border: 1px solid rgba(0, 78, 0, 0.39);;
+            border-radius: 10px;
+            padding: 10px;
+            justify-content: space-between;
+            & span {
+                display: flex;
+                gap: 5px;
+                align-items: center;
+                text-transform: capitalize;
+            }
+            &:hover {
+                background-color: rgba(0,0,0,0.2);
+                cursor: pointer;
+            }
+        }
     }
 }
