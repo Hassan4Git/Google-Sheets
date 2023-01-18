@@ -40,8 +40,21 @@ export default async function handler(req, res) {
                 range: 'Orders'
             }).then(res => res.data.values)
             resp.shift()
-            res.status(200).json({
+            resp.map((cust,index) => {
+                cust.push(`${index + 2}`) // + 2 because of 0th index, + shift()
+            })
+            return res.status(200).json({
                 data: resp
+            })
+        case 'DELETE':
+            const ans = await sheets.spreadsheets.values.batchClear({
+                spreadsheetId: process.env.GOOGLE_SHEET_ID,
+                requestBody: {
+                    ranges: [body]
+                }
+            })
+            return res.status(200).json({
+                data: ans.data
             })
     }
 }

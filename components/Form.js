@@ -31,8 +31,6 @@ const Form = () => {
     }
     return (
         <div className={styles.container}>
-            <Image src='/google_sheets_logo.png' height={70} width={50} alt='Google Sheets' id={styles.bottom} />
-            <Image src='/google_sheets_logo.png' height={70} width={50} alt='Google Sheets' id={styles.top} />
             <form className={styles.form} onSubmit={handleSubmit}>
                 <h1>Order</h1>
                 <TextField 
@@ -42,7 +40,8 @@ const Form = () => {
                     onChange={(e) => setName(e.target.value)}
                     value={name}
                     type='text'
-                    required 
+                    required
+                    color='success' 
                 />
                 <TextField 
                     variant='outlined' 
@@ -52,7 +51,7 @@ const Form = () => {
                     value={number}
                     type='number'
                     required
-                    inputProps={{maxLength: "10"}}
+                    color='success' 
                 />
                 <TextField 
                     variant='outlined' 
@@ -62,9 +61,10 @@ const Form = () => {
                     value={email}
                     type='email'
                     required 
+                    color='success' 
                 />
                 <FormControl style={{width: "100%"}}>
-                    <InputLabel id="packagePicker">Package</InputLabel>
+                    <InputLabel id="packagePicker" color='success'>Package</InputLabel>
                     <Select
                         labelId="packagePicker"
                         id="packageSelect"
@@ -72,6 +72,7 @@ const Form = () => {
                         label="Package"
                         onChange={handleChange}
                         fullWidth
+                        color='success' 
                         >
                         <MenuItem value={1}>1</MenuItem>
                         <MenuItem value={2}>2</MenuItem>
