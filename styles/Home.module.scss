@@ -1,29 +1,30 @@
 .wrapper {
 	display: flex;
 	flex-direction: column;
-	width: 1200px;
+	width: 100vw;
 	margin: auto;
 	justify-content: center;
 	align-items: center;
-	& .header {
+	& .nav {
 		display: flex;
 		width: 100%;
 		justify-content: center;
 		align-items: center;
-		margin-top: 20px;
 		margin-bottom: 40px;
+		background-color: rgb(44, 44, 44);
 		& img {
 			transform: translate(10px, 0);
 		}
 		& h1 {
 			font-size: 70px;
 			font-weight: 300;
+			color: rgba(255,255,255,0.87);
 		}
 	}
 	& .container {
 		display: flex;
 		justify-content: space-between;
-		width: 100%;
+		width: 1200px;
 		height: 700px;
 		& .packagesSearchContainer {
 			display: flex;

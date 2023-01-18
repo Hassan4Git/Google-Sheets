@@ -43,6 +43,8 @@ const Form = () => {
                     value={name}
                     type='text'
                     required 
+                    color='success'
+                    focused
                 />
                 <TextField 
                     variant='outlined' 
@@ -52,7 +54,7 @@ const Form = () => {
                     value={number}
                     type='number'
                     required
-                    inputProps={{maxLength: "10"}}
+                    color='success'
                 />
                 <TextField 
                     variant='outlined' 
@@ -62,9 +64,10 @@ const Form = () => {
                     value={email}
                     type='email'
                     required 
+                    color='success'
                 />
                 <FormControl style={{width: "100%"}}>
-                    <InputLabel id="packagePicker">Package</InputLabel>
+                    <InputLabel id="packagePicker" color='success'>Package</InputLabel>
                     <Select
                         labelId="packagePicker"
                         id="packageSelect"
@@ -72,6 +75,7 @@ const Form = () => {
                         label="Package"
                         onChange={handleChange}
                         fullWidth
+                        color='success'
                         >
                         <MenuItem value={1}>1</MenuItem>
                         <MenuItem value={2}>2</MenuItem>
