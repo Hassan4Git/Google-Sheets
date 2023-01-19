@@ -1,5 +1,5 @@
 .container {
-    width: 30%;
+    width: 100%;
     & .searchBar {
         position: relative;
         display: flex;
@@ -40,7 +40,7 @@
         height: 300px;
         overflow: auto;
         padding: 10px;
-        & .orders {
+        & .order {
             display: flex;
             flex-direction: column;
             border: 1px solid rgba(0, 78, 0, 0.39);;
@@ -50,6 +50,7 @@
             min-height: 190px;
             overflow: hidden;
             position: relative;
+            cursor: pointer;
             & > img {
                 position: absolute;
                 right: 2%;
@@ -64,12 +65,52 @@
                 gap: 10px;
                 align-items: center;
                 text-transform: capitalize;
+                z-index: -1;
                 &:nth-child(3) {
                     text-transform: none;
                 }
             }
             &:hover {
-                background-color: rgba(0,0,0,0.2);
+                background-color: rgba(0,0,0,0.05);
+            }
+        }
+    }
+    & .updateOrder {
+        display: none;
+        flex-direction: column;
+        & .pseudoForm {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            & input {
+                border: 1px solid rgba(0,0,0,0.3); border-radius: 5px;
+                outline: none;
+                padding: 20px 15px;
+            }
+            & .buttonWrapper {
+                display: flex;
+                justify-content: space-around;
+                & button {
+                    padding: 20px;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    border-radius: 15px;
+                    width: 40%;
+                    font-size: 20px;
+                }
+                & .updateButton {
+                    background-color: rgba(0, 78, 0, 0.39);
+                    &:hover {
+                        background-color: rgba(0, 78, 0, 0.59);
+                    }
+                }
+                & .cancelButton {
+                    background-color: rgba(78, 0, 0, 0.39);
+                    &:hover {
+                        background-color: rgba(78, 0, 0, 0.59);
+                    }
+                }
             }
         }
     }

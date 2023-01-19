@@ -19,9 +19,15 @@ export default function Home() {
 				<h1>oogle Sheets API</h1>
 			</div>
 			<div className={styles.container}>
-				<Packages />
-				<Form />
-				<Search />
+				<div style={{width: '30%'}}>
+					<Packages />
+				</div>
+				<div style={{width: '30%'}}>
+					<Form />
+				</div>
+				<div style={{width: '30%'}}>
+					<Search />
+				</div>
 			</div>
 			<div className={styles.instructions}>
 				<h2>Overview</h2>
