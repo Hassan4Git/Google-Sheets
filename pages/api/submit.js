@@ -56,5 +56,20 @@ export default async function handler(req, res) {
             return res.status(200).json({
                 data: ans.data
             })
+        case 'PUT':
+            console.log(body)
+            const reply = await sheets.spreadsheets.values.update({
+                spreadsheetId: process.env.GOOGLE_SHEET_ID,
+                range: body.range,
+                valueInputOption: 'USER_ENTERED',
+                requestBody: {
+                    values: [
+                        [body.name, body.number, body.email, body.packageNum]
+                    ]
+                }
+            })
+            return res.status(200).json({
+                data: reply
+            })
     }
 }
