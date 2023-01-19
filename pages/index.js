@@ -19,11 +19,22 @@ export default function Home() {
 				<h1>oogle Sheets API</h1>
 			</div>
 			<div className={styles.container}>
-				<Form />
-				<div className={styles.packagesSearchContainer}>
+				<div style={{width: '30%'}}>
 					<Packages />
+				</div>
+				<div style={{width: '30%'}}>
+					<Form />
+				</div>
+				<div style={{width: '30%'}}>
 					<Search />
 				</div>
+			</div>
+			<div className={styles.instructions}>
+				<h2>Overview</h2>
+				<p>This interface allows you to interact with a Google Sheet database through an API.</p>
+				<p>You can perform all 4 CRUD operations. Create, Read, Update, Delete.</p>
+				<p>Create an order through the form. Search for it, and update or delete it.</p>
+				<p>There are existing orders under the name 'Hassan'. </p>
 			</div>
 		</div>
 	)

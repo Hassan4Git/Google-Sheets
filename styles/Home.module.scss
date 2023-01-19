@@ -1,7 +1,7 @@
 .wrapper {
 	display: flex;
 	flex-direction: column;
-	width: 100vw;
+	width: 100%;
 	margin: auto;
 	justify-content: center;
 	align-items: center;
@@ -9,28 +9,35 @@
 		display: flex;
 		width: 100%;
 		justify-content: center;
-		align-items: center;
+		align-items: baseline;
 		margin-bottom: 40px;
-		background-color: rgb(44, 44, 44);
+		padding-bottom: 20px;
+		background-color: rgba(0,0,0,0.1);
+		border-bottom: 1px solid rgba(0, 128, 0, 0.171);
 		& img {
-			transform: translate(10px, 0);
+			transform: translate(10px, 13px);
 		}
 		& h1 {
 			font-size: 70px;
 			font-weight: 300;
-			color: rgba(255,255,255,0.87);
+			color: black;
 		}
 	}
 	& .container {
 		display: flex;
 		justify-content: space-between;
-		width: 1200px;
-		height: 700px;
-		& .packagesSearchContainer {
-			display: flex;
-			flex-direction: column;
-			height: 100%;
-			width: 500px;
+		width: 90%;
+		height: 55vh;
+		overflow: hidden;
+	}
+	& .instructions {
+		& p {
+			color: rgba(0,0,0,0.6);
+			margin: auto;
+			margin-top: 10px;
+			border-bottom: 1px solid rgba(0,0,0,0.2);
+			width: fit-content;
+			
 		}
 	}
 }

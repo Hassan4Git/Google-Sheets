@@ -1,5 +1,4 @@
 import styles from '../styles/Form.module.scss'
-import Image from 'next/image'
 import { TextField, Select, MenuItem, InputLabel, FormControl } from '@mui/material'
 import { useState } from 'react'
 
@@ -8,9 +7,8 @@ const Form = () => {
     const [number, setNumber] = useState('')
     const [email, setEmail] = useState('')
     const [packageNum, setPackageNum] = useState('')
-    const handleChange = (event) => {
-        setPackageNum(event.target.value)
-    }
+    
+    // CREATE: Handles form submission. POST request to API, then resets state variables.
     const handleSubmit = async (e) => {
         e.preventDefault()
         const form = {
@@ -31,10 +29,8 @@ const Form = () => {
     }
     return (
         <div className={styles.container}>
-            <Image src='/google_sheets_logo.png' height={70} width={50} alt='Google Sheets' id={styles.bottom} />
-            <Image src='/google_sheets_logo.png' height={70} width={50} alt='Google Sheets' id={styles.top} />
+            <h2>Place Order</h2>
             <form className={styles.form} onSubmit={handleSubmit}>
-                <h1>Order</h1>
                 <TextField 
                     variant='outlined' 
                     label='Name' 
@@ -42,9 +38,8 @@ const Form = () => {
                     onChange={(e) => setName(e.target.value)}
                     value={name}
                     type='text'
-                    required 
-                    color='success'
-                    focused
+                    required
+                    color='success' 
                 />
                 <TextField 
                     variant='outlined' 
@@ -73,13 +68,15 @@ const Form = () => {
                         id="packageSelect"
                         value={packageNum}
                         label="Package"
-                        onChange={handleChange}
+                        onChange={(e) => setPackageNum(e.target.value)}
                         fullWidth
-                        color='success'
+                        color='success' 
                         >
                         <MenuItem value={1}>1</MenuItem>
                         <MenuItem value={2}>2</MenuItem>
                         <MenuItem value={3}>3</MenuItem>
+                        <MenuItem value={4}>4</MenuItem>
+                        <MenuItem value={5}>5</MenuItem>
                     </Select>                
                 </FormControl>
                 <input type='submit' value='Submit Order' />
