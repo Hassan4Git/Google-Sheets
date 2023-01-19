@@ -7,9 +7,8 @@ const Form = () => {
     const [number, setNumber] = useState('')
     const [email, setEmail] = useState('')
     const [packageNum, setPackageNum] = useState('')
-    const handleChange = (event) => {
-        setPackageNum(event.target.value)
-    }
+    
+    // CREATE: Handles form submission. POST request to API, then resets state variables.
     const handleSubmit = async (e) => {
         e.preventDefault()
         const form = {
@@ -69,7 +68,7 @@ const Form = () => {
                         id="packageSelect"
                         value={packageNum}
                         label="Package"
-                        onChange={handleChange}
+                        onChange={(e) => setPackageNum(e.target.value)}
                         fullWidth
                         color='success' 
                         >

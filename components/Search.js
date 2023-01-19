@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styles from '../styles/Search.module.scss'
 import { useState } from 'react'
+import { TextField, Select, MenuItem, InputLabel, FormControl } from '@mui/material'
 
 const Search = () => {
     // Declaring required state variables.
@@ -43,7 +44,6 @@ const Search = () => {
 
     // Setup for update order screen.
     const updateOrderSetup = async (e, rowNumber) => {
-        console.log(e.target.outerText)
         const splitArray = e.target.outerText.split("\n")
         splitArray.push(rowNumber)
         console.log(splitArray) 
@@ -135,10 +135,54 @@ const Search = () => {
                 <div className={styles.updateOrder} id='updateOrder'>
                     <h2>Update Order</h2>
                     <div className={styles.pseudoForm}>
-                        <input type='text' value={name} onChange={(e) => setName(e.target.value)} id='nameInput' />
-                        <input type='text' value={number} onChange={(e) => setNumber(e.target.value)} id='numberInput' />
-                        <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} id='emailInput' />
-                        <input type='text' value={packageNum} onChange={(e) => setPackageNum(e.target.value)} id='packageInput' />
+                        <TextField 
+                        variant='outlined' 
+                        label='Name' 
+                        fullWidth 
+                        onChange={(e) => setName(e.target.value)}
+                        value={name}
+                        type='text'
+                        required
+                        color='success' 
+                        />
+                        <TextField 
+                            variant='outlined' 
+                            label='Phone Number' 
+                            fullWidth 
+                            onChange={(e) => setNumber(e.target.value)}
+                            value={number}
+                            type='number'
+                            required
+                            color='success'
+                        />
+                        <TextField 
+                            variant='outlined' 
+                            label='Email' 
+                            fullWidth 
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
+                            type='email'
+                            required 
+                            color='success'
+                        />
+                        <FormControl style={{width: "100%"}}>
+                            <InputLabel id="packagePicker" color='success'>Package</InputLabel>
+                            <Select
+                                labelId="packagePicker"
+                                id="packageSelect"
+                                value={packageNum}
+                                label="Package"
+                                onChange={(e) => setPackageNum(e.target.value)}
+                                fullWidth
+                                color='success' 
+                                >
+                                <MenuItem value={1}>1</MenuItem>
+                                <MenuItem value={2}>2</MenuItem>
+                                <MenuItem value={3}>3</MenuItem>
+                                <MenuItem value={4}>4</MenuItem>
+                                <MenuItem value={5}>5</MenuItem>
+                            </Select>                
+                        </FormControl>
                         <div className={styles.buttonWrapper}>
                             <button className={styles.updateButton} onClick={submitUpdate}>Update</button>
                             <button className={styles.cancelButton} onClick={cancelUpdate}>Cancel</button>

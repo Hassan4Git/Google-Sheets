@@ -32,9 +32,9 @@ export default function Home() {
 			<div className={styles.instructions}>
 				<h2>Overview</h2>
 				<p>This interface allows you to interact with a Google Sheet database through an API.</p>
-				<p>You can perform all CRUD operations here. Create, Read, Update, Delete.</p>
-				<p>Create is done through the 'Place Order' screen, and the rest are done under 'Order Search'.</p>
-				<p>The design isn't meant to be realistic, as a customer who is placing an order shouldn't be able to look up all orders, much less delete them.</p>
+				<p>You can perform all 4 CRUD operations. Create, Read, Update, Delete.</p>
+				<p>Create an order through the form. Search for it, and update or delete it.</p>
+				<p>There are existing orders under the name 'Hassan'. </p>
 			</div>
 		</div>
 	)
