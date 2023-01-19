@@ -1,5 +1,5 @@
 .container {
-    height: 55%;
+    width: 30%;
     & .searchBar {
         position: relative;
         display: flex;
@@ -28,7 +28,9 @@
                 color: rgba(0,0,0,0.5)
             }
         }
-        
+        &:hover, &:focus-within {
+            border: 1px solid rgba(0,0,0,0.7);
+        }
     }
     & .matchedOrders {
         display: flex;
@@ -62,6 +64,9 @@
                 gap: 10px;
                 align-items: center;
                 text-transform: capitalize;
+                &:nth-child(3) {
+                    text-transform: none;
+                }
             }
             &:hover {
                 background-color: rgba(0,0,0,0.2);

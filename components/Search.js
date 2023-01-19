@@ -19,7 +19,7 @@ const Search = () => {
         ) : setListOfCustomers([])
     }
     const deleteOrder = async (rowValue) => {
-        const response = await fetch('/api/submit', {
+        await fetch('/api/submit', {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
@@ -30,6 +30,7 @@ const Search = () => {
     }
     return (
         <div className={styles.container}>
+            <h2>Order Search</h2>
             <div className={styles.searchBar}>
                 <div className={styles.imageContainer}>
                     <Image src='/search_icon.png' height={30} width={30} alt='Search Icon' />

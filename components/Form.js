@@ -1,5 +1,4 @@
 import styles from '../styles/Form.module.scss'
-import Image from 'next/image'
 import { TextField, Select, MenuItem, InputLabel, FormControl } from '@mui/material'
 import { useState } from 'react'
 
@@ -31,8 +30,8 @@ const Form = () => {
     }
     return (
         <div className={styles.container}>
+            <h2>Place Order</h2>
             <form className={styles.form} onSubmit={handleSubmit}>
-                <h1>Order</h1>
                 <TextField 
                     variant='outlined' 
                     label='Name' 
@@ -51,7 +50,7 @@ const Form = () => {
                     value={number}
                     type='number'
                     required
-                    color='success' 
+                    color='success'
                 />
                 <TextField 
                     variant='outlined' 
@@ -61,7 +60,7 @@ const Form = () => {
                     value={email}
                     type='email'
                     required 
-                    color='success' 
+                    color='success'
                 />
                 <FormControl style={{width: "100%"}}>
                     <InputLabel id="packagePicker" color='success'>Package</InputLabel>
@@ -77,6 +76,8 @@ const Form = () => {
                         <MenuItem value={1}>1</MenuItem>
                         <MenuItem value={2}>2</MenuItem>
                         <MenuItem value={3}>3</MenuItem>
+                        <MenuItem value={3}>4</MenuItem>
+                        <MenuItem value={3}>5</MenuItem>
                     </Select>                
                 </FormControl>
                 <input type='submit' value='Submit Order' />
