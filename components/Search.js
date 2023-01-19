@@ -13,6 +13,19 @@ const Search = () => {
     const [packageNum, setPackageNum] = useState('')
     const [searchTermState, setSearchTermState] = useState('')
 
+    // Is used to toggle between Order Search and Update Order.
+    function toggleUpdateScreen() {
+        if (document.getElementById('orderScreen').style.display == 'none') { 
+            document.getElementById('orderScreen').style.display = 'flex' 
+            document.getElementById('searchSection').style.display = 'block' 
+            document.getElementById('updateOrder').style.display = 'none'
+        } else {
+            document.getElementById('orderScreen').style.display = 'none'
+            document.getElementById('searchSection').style.display = 'none' 
+            document.getElementById('updateOrder').style.display = 'flex'
+        }
+    }
+
     // READ: Search function. Takes the search term, fetches the data, filters for matching rows.
     const searchFunction = async (search) => {
         const searchTerm = (search).toLowerCase()
@@ -22,8 +35,9 @@ const Search = () => {
             headers: {
                 'Accept': 'application/json',
             },
-        }).then(res => res.json()).then(res => res.data)        
-        searchTerm != '' ? 
+        }).then(res => res.json()).then(res => res.data)
+        // liftOfCustomers state variable is used to render out the orders.         
+        searchTerm.length >= 3 ? 
         setListOfCustomers(
             response.filter(customer => customer[0].toLowerCase().includes(searchTerm))
         ) : setListOfCustomers([])
@@ -31,7 +45,7 @@ const Search = () => {
     
     // DELETE: Delete function. Takes the rowValue, passes it to the API as a range, to delete it.
     const deleteOrder = async (e, rowValue) => {
-        e.stopPropagation()
+        e.stopPropagation() // This is to stop this function from also triggering the updateOrderSetup function, because they're overlapped on the page.
         await fetch('/api/submit', {
             method: 'DELETE',
             headers: {
@@ -39,26 +53,21 @@ const Search = () => {
             },
             body: `A${rowValue}:D${rowValue}` // This is the range to delete.
         })
-        setListOfCustomers(listOfCustomers.filter(customer => customer[4] != rowValue))
+        setListOfCustomers(listOfCustomers.filter(customer => customer[4] != rowValue)) // Returns a filtered list that excludes the item with the deleted row.
     }
 
     // Setup for update order screen.
     const updateOrderSetup = async (e, rowNumber) => {
         const splitArray = e.target.outerText.split("\n")
         splitArray.push(rowNumber)
-        console.log(splitArray) 
         setUpdateArray(splitArray)
         setName(splitArray[0]); setNumber(splitArray[1]); setEmail(splitArray[2]); setPackageNum(splitArray[3]);
-        document.getElementById('orderScreen').style.display = 'none'
-        document.getElementById('searchSection').style.display = 'none'
-        document.getElementById('updateOrder').style.display = 'flex'
+        toggleUpdateScreen()
     }
 
     // Cancel update, change displays back.
     function cancelUpdate() {
-        document.getElementById('orderScreen').style.display = 'flex'
-        document.getElementById('searchSection').style.display = 'block'
-        document.getElementById('updateOrder').style.display = 'none'
+        toggleUpdateScreen()
         searchFunction(searchTermState)
     }
 
@@ -80,9 +89,7 @@ const Search = () => {
             body: JSON.stringify(form)
         })
         searchFunction(searchTermState)
-        document.getElementById('orderScreen').style.display = 'flex'
-        document.getElementById('searchSection').style.display = 'block'
-        document.getElementById('updateOrder').style.display = 'none'
+        toggleUpdateScreen()
     }
     return (
         <>
